@@ -6,19 +6,8 @@ namespace AddressBook
 {
     class Program
     {
-        /*
-            1. Add the required classes to make the following code compile.
-            HINT: Use a Dictionary in the AddressBook class to store Contacts. The key should be the contact's email address.
-
-            2. Run the program and observe the exception.
-
-            3. Add try/catch blocks in the appropriate locations to prevent the program from crashing
-                Print meaningful error messages in the catch blocks.
-        */
-
         static void Main(string[] args)
         {
-            // Create a few contacts
             Contact bob = new Contact()
             {
                 FirstName = "Bob",
@@ -43,13 +32,13 @@ namespace AddressBook
 
 
 
-            // Create an AddressBook and add some contacts to it
+
             AddressBook addressBook = new AddressBook(); //this is instantiation
             addressBook.AddContact(bob); //calling method on addressBook 
             addressBook.AddContact(sue);
             addressBook.AddContact(juan);
 
-            // Try to addd a contact a second time
+            // Try to addd a contact a second time to see what error message will show
             addressBook.AddContact(sue);
 
 
@@ -64,14 +53,22 @@ namespace AddressBook
             emails.Insert(1, "not.in.addressbook@email.com");
 
 
-            // //  Search the AddressBook by email and print the information about each Contact
+            // Search the AddressBook by email and print the information about each Contact
             foreach (string email in emails)
             {
-                Contact contact = addressBook.GetByEmail(email);
-                Console.WriteLine("----------------------------");
-                Console.WriteLine($"Name: {contact.FullName}");
-                Console.WriteLine($"Email: {contact.Email}");
-                Console.WriteLine($"Address: {contact.Address}");
+                Contact contact = addressBook.GetByEmail(email); //instantiation 
+                if (contact != null)
+                {
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine($"Name: {contact.FullName}");
+                    Console.WriteLine($"Email: {contact.Email}");
+                    Console.WriteLine($"Address: {contact.Address}");
+                }
+                else
+                {
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine($"Contact is null for {email}");
+                }
             }
         }
     }
