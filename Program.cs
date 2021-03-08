@@ -6,7 +6,6 @@ namespace AddressBook
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             Contact bob = new Contact()
@@ -54,7 +53,7 @@ namespace AddressBook
             emails.Insert(1, "not.in.addressbook@email.com");
 
 
-            // //  Search the AddressBook by email and print the information about each Contact
+            // Search the AddressBook by email and print the information about each Contact
             foreach (string email in emails)
             {
                 Contact contact = addressBook.GetByEmail(email); //instantiation 
