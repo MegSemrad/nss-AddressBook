@@ -22,7 +22,15 @@ namespace AddressBook
 
         public Contact GetByEmail(string personsEmail)
         {
-            return Contacts[personsEmail]; //Contacts the name of dictionary 
+            try
+            {
+                return Contacts[personsEmail]; //Contacts the name of dictionary 
+            }
+            catch (KeyNotFoundException)
+            {
+                Console.WriteLine("this email address was not found");
+                return null;
+            }
         }
     }
 

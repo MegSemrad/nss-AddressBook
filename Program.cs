@@ -67,11 +67,14 @@ namespace AddressBook
             // //  Search the AddressBook by email and print the information about each Contact
             foreach (string email in emails)
             {
-                Contact contact = addressBook.GetByEmail(email);
-                Console.WriteLine("----------------------------");
-                Console.WriteLine($"Name: {contact.FullName}");
-                Console.WriteLine($"Email: {contact.Email}");
-                Console.WriteLine($"Address: {contact.Address}");
+                Contact contact = addressBook.GetByEmail(email); //instantiation 
+                if (contact != null)
+                {
+                    Console.WriteLine("----------------------------");
+                    Console.WriteLine($"Name: {contact.FullName}");
+                    Console.WriteLine($"Email: {contact.Email}");
+                    Console.WriteLine($"Address: {contact.Address}");
+                }
             }
         }
     }
