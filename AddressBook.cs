@@ -7,7 +7,7 @@ namespace AddressBook
     public class AddressBook
     {
         public Dictionary<string, Contact> Contacts = new Dictionary<string, Contact>();
-        public void AddContact(Contact contactInfoObject) //Contact is the data type AND contactInfoObject is foo 
+        public void AddContact(Contact contactInfoObject) //Contact here is the data type AND contactInfoObject is foo(ie just a variable name) 
         {
 
             try
@@ -24,7 +24,7 @@ namespace AddressBook
         {
             try
             {
-                return Contacts[personsEmail]; //Contacts the name of dictionary 
+                return Contacts[personsEmail]; //Contacts is the name of dictionary 
             }
             catch (KeyNotFoundException)
             {
